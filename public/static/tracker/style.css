@@ -1,0 +1,47 @@
+.row-top10 {
+  background: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.06) 0%,
+    transparent 100%
+  );
+}
+
+.ticker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.02em;
+}
+
+.name {
+  color: #94a3b8;
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .name {
+    max-width: 20rem;
+  }
+}
+
+.move {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.gain {
+  color: #34d399;
+}
+
+.loss {
+  color: #f87171;
+}
+
+.banner-pending {
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.15);
+}
+
+.report-meta {
+  letter-spacing: 0.01em;
+}

@@ -2,6 +2,26 @@
 
 Static site for etffy, deployed separately from the Django tracker.
 
+Generated files live in **`public/`** (Vercel `outputDirectory`). Rebuild them from the Django app:
+
+```bash
+cd ..   # etffy project root (parent of static-etffy)
+python manage.py export_public_html
+```
+
+Options:
+
+- `--only-latest` — only `public/index.html` and `public/hsbc_report/index.html` (no `report/<date>/` trees).
+- `--out /other/path` — custom output directory.
+
+This uses Django’s **test `Client`**, so you get the same HTML as `runserver` without starting a port. To mirror a live server:
+
+```bash
+# from etffy root
+python manage.py runserver 0.0.0.0:8000
+# then curl http://127.0.0.1:8000/ …
+```
+
 ## GitHub
 
 From this directory:
@@ -41,7 +61,7 @@ Then keep `static-etffy` as its own git root (nested repo). Alternatively:
 
 1. In [Vercel](https://vercel.com), **Add New → Project** and **Import** the GitHub repo.
 2. **Root Directory**: leave `.` (repository root is this project).
-3. **Framework Preset**: Other (static). No install/build needed.
+3. **Framework Preset**: Other (static). **Output directory**: `public` (see `vercel.json`).
 4. Deploy.
 
 CLI (optional):
@@ -52,4 +72,4 @@ cd static-etffy
 vercel
 ```
 
-Output: `index.html` at repo root is served as `/`.
+Site root is **`public/`** (e.g. `public/index.html` → `/`).
