@@ -1,26 +1,36 @@
 # static-etffy
 
-Static site for etffy, deployed separately from the Django tracker.
+Static HTML site for ETF performance reports. Built files live in **`public/`** (Vercel `outputDirectory`, see `vercel.json`).
 
-Generated files live in **`public/`** (Vercel `outputDirectory`). Rebuild them from the Django app:
+## Reports in `public/`
+
+| URL path | File | What it is |
+|----------|------|------------|
+| `/` | `public/index.html` | **Main report** — rankings (daily / weekly / monthly) for the latest snapshot date in the data behind the export. |
+| `/report/<YYYY-MM-DD>/` | `public/report/<YYYY-MM-DD>/index.html` | Same **main report** for a single trading day (prev/next navigation when present in the export). |
+| `/hsbc_report/` | `public/hsbc_report/index.html` | **HSBC watchlist** — movers only for ETFs tied to the HSBC listed-fund watchlist for that run. |
+| `/hsbc_report/<YYYY-MM-DD>/` | `public/hsbc_report/<YYYY-MM-DD>/index.html` | HSBC report for a specific date. |
+| `/aviva_report/` | `public/aviva_report/index.html` | **Aviva watchlist** — movers only for ETFs tied to the Aviva listed-fund watchlist. |
+| `/aviva_report/<YYYY-MM-DD>/` | `public/aviva_report/<YYYY-MM-DD>/index.html` | Aviva report for a specific date. |
+
+Each report page shows top movers (e.g. top 10 / top 50 tables) from stored end-of-day snapshots. Actual HTML depends on whatever was last exported into `public/`.
+
+## Deploy (Vercel)
+
+1. In [Vercel](https://vercel.com), **Add New → Project** and import this repository.
+2. **Root Directory**: `.` (repo root is this project).
+3. **Framework Preset**: Other (static). **Output directory**: `public`.
+4. Deploy.
+
+CLI (optional):
 
 ```bash
-cd ..   # etffy project root (parent of static-etffy)
-python manage.py export_public_html
+npm i -g vercel
+cd static-etffy
+vercel
 ```
 
-Options:
-
-- `--only-latest` — only `public/index.html` and `public/hsbc_report/index.html` (no `report/<date>/` trees).
-- `--out /other/path` — custom output directory.
-
-This uses Django’s **test `Client`**, so you get the same HTML as `runserver` without starting a port. To mirror a live server:
-
-```bash
-# from etffy root
-python manage.py runserver 0.0.0.0:8000
-# then curl http://127.0.0.1:8000/ …
-```
+The live site serves **`public/`** (e.g. `public/index.html` → `/`).
 
 ## GitHub
 
@@ -32,7 +42,7 @@ git add .
 git commit -m "Initial static-etffy"
 ```
 
-Create a new empty repository on GitHub (e.g. `static-etffy`), then:
+Create an empty repository, then:
 
 ```bash
 git remote add origin https://github.com/<your-org>/static-etffy.git
@@ -40,36 +50,17 @@ git branch -M main
 git push -u origin main
 ```
 
-### Parent repo + subfolder
+### Parent monorepo + subfolder
 
-If the parent `etffy` repo should not include this site, add to the parent `.gitignore`:
+If a parent repo should not track this site, add to the parent `.gitignore`:
 
 ```
 static-etffy/
 ```
 
-Then keep `static-etffy` as its own git root (nested repo). Alternatively:
-
-- **Submodule** (parent tracks a commit of this repo):
-
-  ```bash
-  cd ..
-  git submodule add https://github.com/<your-org>/static-etffy.git static-etffy
-  ```
-
-## Vercel
-
-1. In [Vercel](https://vercel.com), **Add New → Project** and **Import** the GitHub repo.
-2. **Root Directory**: leave `.` (repository root is this project).
-3. **Framework Preset**: Other (static). **Output directory**: `public` (see `vercel.json`).
-4. Deploy.
-
-CLI (optional):
+Treat `static-etffy` as its own git root, or add it as a **submodule**:
 
 ```bash
-npm i -g vercel
-cd static-etffy
-vercel
+cd ..
+git submodule add https://github.com/<your-org>/static-etffy.git static-etffy
 ```
-
-Site root is **`public/`** (e.g. `public/index.html` → `/`).
