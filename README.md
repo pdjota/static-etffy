@@ -6,8 +6,9 @@ Static HTML site for ETF performance reports. Built files live in **`public/`** 
 
 | URL path | File | What it is |
 |----------|------|------------|
-| `/` | `public/index.html` | **Main report** — rankings (daily / weekly / monthly) for the latest snapshot date in the data behind the export. |
-| `/report/<YYYY-MM-DD>/` | `public/report/<YYYY-MM-DD>/index.html` | Same **main report** for a single trading day (prev/next navigation when present in the export). |
+| `/` | `public/index.html` | **Home** — short intro and links to the three coverage sets. |
+| `/report/` | `public/report/index.html` | **Broad universe** — rankings for the latest snapshot date (~thousands of ETFs from the screener). |
+| `/report/<YYYY-MM-DD>/` | `public/report/<YYYY-MM-DD>/index.html` | Same **broad universe** report for one trading day. |
 | `/hsbc_report/` | `public/hsbc_report/index.html` | **HSBC watchlist** — movers only for ETFs tied to the HSBC listed-fund watchlist for that run. |
 | `/hsbc_report/<YYYY-MM-DD>/` | `public/hsbc_report/<YYYY-MM-DD>/index.html` | HSBC report for a specific date. |
 | `/aviva_report/` | `public/aviva_report/index.html` | **Aviva watchlist** — movers only for ETFs tied to the Aviva listed-fund watchlist. |
