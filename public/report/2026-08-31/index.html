@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HSBC — ETFfy</title>
+    <title>Broad universe — ETFfy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/static/tracker/style.css" />
   </head>
@@ -12,7 +12,7 @@
     
   <header class="border-b border-slate-800 bg-slate-900/80 px-6 py-4 backdrop-blur">
     <div class="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <h1 class="text-xl font-semibold tracking-tight text-white">HSBC</h1>
+      <h1 class="text-xl font-semibold tracking-tight text-white">Broad universe report</h1>
       <nav class="flex flex-wrap items-center gap-3 text-sm text-slate-400">
         <a
           class="rounded-md px-2 py-1 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
@@ -22,8 +22,8 @@
         
           <a
             class="rounded-md px-2 py-1 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
-            href="/report/"
-            >Broad universe</a
+            href="/hsbc_report/"
+            >HSBC</a
           >
         
           <a
@@ -35,12 +35,16 @@
         
           <a
             class="rounded-md px-2 py-1 text-emerald-400 hover:bg-slate-800 hover:text-emerald-300"
-            href="/hsbc_report/2026-08-31/"
-            >← Aug. 31, 2026</a
+            href="/report/2026-08-30/"
+            >← Aug. 30, 2026</a
           >
         
         
-          <span class="text-slate-600">next →</span>
+          <a
+            class="rounded-md px-2 py-1 text-emerald-400 hover:bg-slate-800 hover:text-emerald-300"
+            href="/report/2026-09-01/"
+            >Sept. 1, 2026 →</a
+          >
         
       </nav>
     </div>
@@ -49,17 +53,14 @@
   <main class="mx-auto max-w-5xl px-6 py-8">
     
       
-  <div class="report-meta mb-6 text-sm text-slate-400">
-    HSBC codes in list: <span class="text-slate-200">704</span>
-    · linked to ETFs in DB: <span class="text-slate-200">651</span>
-    · report date <span class="text-slate-200">Sept. 1, 2026</span>
+  <div class="report-meta mb-8 text-sm text-slate-400">
+    Report for <span class="text-slate-200">Aug. 31, 2026</span>
+    · 0 ETFs with data
     <span class="text-slate-600">·</span>
-    Rankings from stored daily / weekly / monthly moves (no download).
+    Rankings use stored daily / weekly / monthly moves (no live download).
   </div>
 
       
-  
-
       
         
 
@@ -75,8 +76,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -88,7 +87,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with daily data for this date.
@@ -110,8 +109,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -123,7 +120,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with daily data for this date.
@@ -150,8 +147,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -163,7 +158,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with weekly data for this date.
@@ -185,8 +180,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -198,7 +191,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with weekly data for this date.
@@ -225,8 +218,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -238,7 +229,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with monthly data for this date.
@@ -260,8 +251,6 @@
           <th class="px-3 py-2 font-medium">#</th>
           <th class="px-3 py-2 font-medium">Ticker</th>
           
-            <th class="px-3 py-2 font-medium">List code</th>
-          
           <th class="px-3 py-2 font-medium">Name</th>
           <th class="px-3 py-2 font-medium">Daily</th>
           <th class="px-3 py-2 font-medium">Weekly</th>
@@ -273,7 +262,7 @@
         
           <tr>
             <td
-              colspan="8"
+              colspan="7"
               class="px-3 py-4 text-center text-slate-500"
             >
               No funds with monthly data for this date.
